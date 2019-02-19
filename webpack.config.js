@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
     mode: 'development',
@@ -9,7 +9,7 @@ module.exports = {
         publicPath: '/'
     },
     resolve: {
-        extensions: ['js', 'jsx']
+        extensions: ['.js', '.jsx']
     },
     devServer: {
         historyApiFallback: true

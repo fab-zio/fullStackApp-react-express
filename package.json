@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/fab-zio/fullStackApp-react-express#readme",
   "dependencies": {
+    "redux": "^4.0.0",
     "webpack": "^4.17.2"
   },
   "devDependencies": {
