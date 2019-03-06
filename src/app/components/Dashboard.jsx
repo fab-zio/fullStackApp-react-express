@@ -9,7 +9,7 @@ export const Dashboard = ({ groups }) => (
             // <div>
             //     {group.name}
             // </div>
-            < ConnectedTaskList id={group.id} name={group.name} />
+            < ConnectedTaskList key={group.id} id={group.id} name={group.name} />
         ))}
     </div>
 )
