@@ -5,6 +5,7 @@ import { ConnectedDashboard } from './Dashboard';
 import { Router, Route } from 'react-router-dom';
 import { history } from '../store/history'; //this way connectedDashboard will appear only when the url says that
 import { ConnectedNavigation } from './Navigation';
+import { ConnectedTaskDetail } from './TaskDetail';
 export const Main = () => (
     <Router history={history}>
 
@@ -15,7 +16,12 @@ export const Main = () => (
                 {/* <ConnectedDashboard /> */}
                 <Route exact
                     path='/dashboard'
-                    render={() => (<ConnectedDashboard />)} />
+                    render={() => (<ConnectedDashboard />)}
+                />
+                <Route exact
+                    path='/task/:id'
+                    render={({ match }) => (<ConnectedTaskDetail match={match} />)}
+                />
             </div>
         </Provider>
     </Router>
