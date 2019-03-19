@@ -9,19 +9,24 @@ const TaskDetail = ({
     groups
 }) => (
         <div>
-            <h2>
-                {task.name}
-            </h2>
-            <button>Complete / Reopen Task</button>
-            <select>
-                {groups.map(group => (
-                    <option key={group.id} value={group.id}>{group.name}</option>
-                ))}
-            </select>
-
-            <Link to='/dashboard'>
-                <button>Done</button>
-            </Link>
+            <div>
+                <input value={task.name} />
+            </div>
+            <div>
+                <button>{isComplete ? 'Reopen' : 'Complete'}</button>
+            </div>
+            <div>
+                <select>
+                    {groups.map(group => (
+                        <option key={group.id} value={group.id}>{group.name}</option>
+                    ))}
+                </select>
+            </div>
+            <div>
+                <Link to='/dashboard'>
+                    <button>Done</button>
+                </Link>
+            </div>
 
         </div>
     );
@@ -29,6 +34,21 @@ const TaskDetail = ({
 const mapStateToProps = (state, ownProps) => {
     let id = ownProps.match.params.id;
     let task = state.tasks.find(task => task.id === id);
-};
+    let groups = state.groups
 
+    return {
+        id,
+        task,
+        groups,
+        isComplete: task.isComplete
+    }
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    const id = ownProps.match.params.id;
+    return {
+        setTaskCompletion(id, isComplete) {
+
+        }
+    }
+}
 export const ConnectedTaskDetail = connect(mapStateToProps)(TaskDetail);
