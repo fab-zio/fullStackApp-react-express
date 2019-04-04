@@ -22,13 +22,13 @@ export const setTaskComplete = (id, isComplete) => ({
     taskID: id,
     isComplete
 })
-export const setTaskGroup = (id, Group) => ({
+export const setTaskGroup = (id, groupID) => ({
     type: CREATE_TASK_GROUP,
     taskID: id,
-    Group
+    groupID
 })
-export const setTaskName = (id, Name) => ({
+export const setTaskName = (id, name) => ({
     type: CREATE_TASK_NAME,
     taskID: id,
-    Name
+    name
 })
